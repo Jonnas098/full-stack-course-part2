@@ -2,6 +2,7 @@ import React from "react";
 
 const NewContact = ({ onSubmit, handleNameChange, handleNumberChange, name, number }) => {
   return(
+    <>
       <form onSubmit={onSubmit}>
         <div>
           Name: <input
@@ -21,6 +22,7 @@ const NewContact = ({ onSubmit, handleNameChange, handleNumberChange, name, numb
           <button type={"submit"}>Add</button>
         </div>
       </form>
+    </>
   )
 }
 
