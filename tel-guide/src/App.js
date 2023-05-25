@@ -21,11 +21,7 @@ const App = () => {
       number: newNumber
     }
     const nameExist = persons.some(data => data.name === newName)
-    if (nameExist) {
-      alert(`${newName} is already added to phonebook`)
-    } else {
-      setPersons(persons.concat(contactObj))
-    }
+    nameExist ? alert(`${newName} is already added to phonebook`) : setPersons(persons.concat(contactObj))
     setNewName("")
     setNewNumber("")
   }
