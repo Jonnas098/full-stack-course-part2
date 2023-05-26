@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Filter from "./components/Filter";
 import NewContact from "./components/NewContact";
 import Contacts from "./components/Contacts";
+import axios from "axios";
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: "John Navarro", number: '8924-6888' },
-    { name: 'Ada Lovelace', number: '39-44-5323523' },
-    { name: 'Dan Abramov', number: '12-43-234345' },
-    { name: 'Mary Poppendieck', number: '39-23-6423122' }
-  ])
+  const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState("")
   const [newNumber, setNewNumber] = useState("")
   const [search, setSearch] = useState("")
+
+  const getHook = () => {
+    axios.get("http://localhost:3001/persons").then(res => {
+      console.log("Promise fulfilled")
+      setPersons(res.data)
+    })
+  }
+  console.log("Phonebook has", persons.length, "persons")
+  useEffect(getHook, [])
 
   const addContact = (event) => {
     event.preventDefault()
