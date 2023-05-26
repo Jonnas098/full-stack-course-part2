@@ -14,6 +14,7 @@ const App = () => {
       setCountries(res.data)
     })
   }
+
   useEffect(searchHook, [])
 
   const countriesToShow = countries.filter((element)=> element.name.common.toLowerCase().includes(search.toLowerCase()))
