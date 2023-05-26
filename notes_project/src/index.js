@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from "./components/App";
+import App from "./App";
 import './index.css';
+import axios from "axios";
+
+axios.get("http://localhost:3001/notes").then(res => {
+  const notes = res.data
+  console.log(notes)
+})
+
+const promise2 = axios.get('http://localhost:3001/foobar')
+console.log(promise2)
 
 const notes = [
   {
@@ -26,4 +35,14 @@ const notes = [
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App notes={notes}/>);
+
+
+//only for test
+// axios.get("http://localhost:3001/notes").then(res => {
+//   const notes = res.data
+//   ReactDOM.render(
+//     <App notes={notes}/>,
+//     document.getElementById('root')
+//   )
+// })
 
