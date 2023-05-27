@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Country from "./Country";
 
 const SingleCountry = ({ country, population, alt, flag, capital, lang }) => {
   const [show, setShow] = useState(true)
@@ -7,34 +8,25 @@ const SingleCountry = ({ country, population, alt, flag, capital, lang }) => {
   }
   let languages = Object.values(lang);
 
+  console.log("Country name:",country, population)
+
   return(
     <div className={"test-content"}>
       <li>
         <h3>{country}</h3>
         <button onClick={()=>handleClick()}>Show details</button>
       </li>
-      {show ?
-        <div className={"test"}>
-          <h1>{country}</h1>
-          <p>Capital: {capital}</p>
-          <p>Population: {population}</p>
-          <h2>Languages</h2>
-          <ul>
-            {languages.map((element, index) => <li key={index}>{element}</li>)}
-          </ul>
-          <img alt={alt} src={flag}/>
+      {!show ?
+        <div className={"test-dos"}>
+          <Country
+            name={country}
+            capital={capital}
+            lang={languages}
+            population={population}
+            flag={flag}
+            alt={alt}/>
         </div>
-        : <div className={"test-dos"}>
-          <h1>{country}</h1>
-          <p>Capital: {capital}</p>
-          <p>Population: {population}</p>
-          <h2>Languages</h2>
-          <ul>
-            {languages.map((element, index) => <li key={index}>{element}</li>)}
-          </ul>
-          <img alt={alt} src={flag}/>
-        </div>
-      }
+        : <></>}
     </div>
   )
 }
