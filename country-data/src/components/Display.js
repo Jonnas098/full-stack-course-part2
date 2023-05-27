@@ -10,6 +10,7 @@ const Display = ({search, countriesToShow}) => {
      population={country.population}
      lang={country.languages}
      flag={country.flags.png}
+     alt={country.flags.alt}
   />)
 
   const singleCountry = countriesToShow.map((country, index) =>(
@@ -19,6 +20,7 @@ const Display = ({search, countriesToShow}) => {
      capital={country.capital}
      lang={country.languages}
      flag={country.flags.png}
+     alt={country.flags.alt}
     />)
   )
 
