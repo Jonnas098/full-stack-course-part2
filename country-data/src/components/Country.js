@@ -1,12 +1,12 @@
 import React from "react";
 
-const Country = ({name, capital, populaton, flag, lang}) => {
+const Country = ({name, capital, populaton, flag, lang, alt}) => {
 
   let languages = Object.values(lang);
   console.log(languages)
 
   return(
-    <>
+    <div>
       <h1>{name}</h1>
       <p>Capital: {capital}</p>
       <p>Population: {populaton}</p>
@@ -14,8 +14,8 @@ const Country = ({name, capital, populaton, flag, lang}) => {
       <ul>
         {languages.map((element, index) => <li key={index}>{element}</li>)}
       </ul>
-      <div>{flag}</div>
-    </>
+      <img alt={alt} src={flag}/>
+    </div>
   )
 }
 
