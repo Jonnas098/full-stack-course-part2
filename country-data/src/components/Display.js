@@ -1,6 +1,7 @@
 import React from "react";
 import Country from "./Country";
 import SingleCountry from "./SingleCountry";
+
 const Display = ({search, countriesToShow}) => {
 
   const countryDetail = countriesToShow.map((country, index) =>
@@ -10,18 +11,17 @@ const Display = ({search, countriesToShow}) => {
      population={country.population}
      lang={country.languages}
      flag={country.flags.png}
-     alt={country.flags.alt}
-  />)
+     alt={country.flags.alt}/>
+  )
 
-  const singleCountry = countriesToShow.map((country, index) =>(
+  const singleCountry = countriesToShow.map((country, index) =>
     <SingleCountry key={index}
      country={country.name.common}
      population={country.population}
      capital={country.capital}
      lang={country.languages}
      flag={country.flags.png}
-     alt={country.flags.alt}
-    />)
+     alt={country.flags.alt}/>
   )
 
   return(
