@@ -1,5 +1,5 @@
 .App {
-
+  text-align: center;
 }
 .App-logo {
   height: 40vmin;
@@ -20,16 +20,6 @@
 .App-link {
   color: #61dafb;
 }
-
-.test {
-  display: none;
-}
-
-.test-dos {
-  display: block;
-}
-
-/*.test-content:hover .test {display: block}*/
 
 @keyframes App-logo-spin {
   from {
