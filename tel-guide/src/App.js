@@ -48,8 +48,6 @@ const App = () => {
       .then(returnedContact => {
         setPersons(persons.concat(returnedContact))
       })
-    setNewName("")
-    setNewNumber("")
   }
 
   const deleteContact = id => {
@@ -85,10 +83,13 @@ const App = () => {
     const nameExist = persons.some(data => data.name === newName)
     const sameNumber = persons.some(data => data.number !== newNumber)
 
-    nameExist && sameNumber ? editNumber()
+    nameExist && sameNumber && !emptyNumber && window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`) ? editNumber()
     : nameExist ? alert(`${newName} is already added to phonebook`)
     : emptyName ? alert("The name cannot be empty")
     : addContact()
+
+    setNewName("")
+    setNewNumber("")
   }
 
   return (
