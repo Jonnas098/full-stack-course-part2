@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import Spinner from "./components/Spinner"
 import Note from "./components/Note";
-import "./app.css"
 import noteService from "./services/notes"
-
-const Spiner = () => {
-  return(
-    <div className={"scaling-dots"}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  )
-}
 
 const App = () => {
   const [notes, setNotes] = useState([])
@@ -30,12 +18,11 @@ const App = () => {
   }
 
   //Services:
-
   useEffect(()=>{
     noteService
       .getAll()
-      .then(initialNotes => {
-        setNotes(initialNotes)
+      .then(response => {
+        setNotes(response)
       })
   }, [])
 
@@ -64,7 +51,13 @@ const App = () => {
       .update(id, changedNote)
       .then(returnedNote => {
         setNotes(notes.map(note=> note.id !== id ? note : returnedNote))
-    })
+      })
+      .catch(error => {
+        alert(
+          `The note '${note.content}' was already deleted from server`
+        )
+        setNotes(notes.filter(n => n.id !== id))
+      })
   }
 
   return(
@@ -76,7 +69,7 @@ const App = () => {
         </button>
       </div>
       {notesToShow.length === 0
-        ? <Spiner/>
+        ? <Spinner/>
         : <ul>{notesToShow.map(note => <Note key={note.id} note={note} toggleImportance={()=>toggleImportanceOf(note.id)}/>)}</ul>}
       <form onSubmit={addNote}>
         <input
