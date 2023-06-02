@@ -9,16 +9,6 @@
       "id": 2,
       "name": "Ada Lovelace",
       "number": "39-44-5323523"
-    },
-    {
-      "name": "Test Contact",
-      "number": "000999",
-      "id": 3
-    },
-    {
-      "name": "Test Dos",
-      "number": "111222",
-      "id": 4
     }
   ]
 }
