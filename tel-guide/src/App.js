@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Filter from "./components/Filter";
 import NewContact from "./components/NewContact";
 import Contacts from "./components/Contacts";
+import Notification from "./components/Notification";
 import phonebookServices from "./services/services"
 
 
@@ -10,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState("")
   const [newNumber, setNewNumber] = useState("")
   const [search, setSearch] = useState("")
+  const [message, setMessage] = useState(null)
 
   const contactsToShow = persons.filter((element)=> element.name.toLowerCase().includes(search.toLowerCase()))
 
@@ -47,6 +49,10 @@ const App = () => {
       .create(contactObj)
       .then(returnedContact => {
         setPersons(persons.concat(returnedContact))
+        setMessage(`Added ${returnedContact.name}`)
+        setTimeout(()=>{
+          setMessage(null)
+        }, 5000)
       })
   }
 
@@ -59,6 +65,12 @@ const App = () => {
         console.log(`Se eliminó el contacto "${contact.name}"`, returnedContact)
         window.confirm(`Se eliminó el contacto "${contact.name}"`)
         setPersons(persons.filter(p => p.id !== id))
+      })
+      .catch(error => {
+        setMessage(`${contact.name} has already been deleted from server`)
+        setTimeout(() => {
+          setMessage(null)
+        }, 5000);
       })
   }
 
@@ -95,6 +107,7 @@ const App = () => {
   return (
     <>
       <h2>Phone Book</h2>
+      <Notification message={message}/>
       <Filter search={search} handleChange={handleSearchChange}/>
       <h2>Add a new</h2>
       <NewContact
