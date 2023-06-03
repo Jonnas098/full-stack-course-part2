@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f6fef9;
+  color: teal;
 }
 
 code {
@@ -12,13 +14,119 @@ code {
     monospace;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 .notification {
-  width: 50%;
-  border-radius: 10px;
-  border: 2px solid green;
-  color: green;
-  padding: 10px;
-  background-color: lightgray;
-  margin-bottom: 19px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid teal;
+  color: teal;
+  padding: 8px;
+  background-color: #f6fef9;
+  margin-top: 6%;
   font-size: 20px;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  background-color: #f6fef9;
+  box-shadow: currentcolor 0px 0px 0px 1px;
+}
+
+input {
+  width: 96%;
+  border-width: 0px;
+  box-shadow: currentcolor 0px 0px 0px 1px;
+  border-style: solid;
+  background: transparent;
+  color: inherit;
+  padding: 8px;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 8px;
+  transition: all 0.2s ease 0s;
+}
+
+button {
+  width: 4em;
+  background: transparent;
+  color: currentcolor;
+  border-radius: 9999px;
+  border: 0px none;
+  box-shadow: currentcolor 0px 0px 0px 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: teal;
+  color: #f6fef9;
+}
+
+form {
+  width: 100%;
+}
+
+ul {
+  max-height: 250px;
+  overflow: scroll;
+  padding: 3% 5%;
+  align-items: center;
+  box-shadow: currentcolor 0px 0px 0px 1px;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 0;
+}
+
+h2 {
+  font-size: 60px;
+  margin: 0% 0% 5% 0%;
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+hr {
+  width: 100%;
+  height: 4px;
+  background-color: teal;
+  border: none; 
+}
+
+p {
+  margin: 0;
+}
+
+.submit {
+  margin-top: 16px;
+  appearance: none;
+  background: transparent;
+  color: currentcolor;
+  border-radius: 9999px;
+  width: 100%;
+  border: 0px none;
+  box-shadow: currentcolor 0px 0px 0px 1px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 400;
 }
