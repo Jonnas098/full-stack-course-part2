@@ -3,23 +3,23 @@ import React from "react";
 const NewContact = ({ onSubmit, handleNameChange, handleNumberChange, name, number }) => {
   return(
     <>
+      <h2>add a new</h2>
+      <hr/>
       <form onSubmit={onSubmit}>
-        <div>
-          Name: <input
+        <p>Name:</p>
+        <input
           placeholder={"Enter new contact"}
           value={name}
           onChange={handleNameChange}
         />
-        </div>
-        <div>
-          Number: <input
+        <p>Number: </p>
+        <input
           placeholder={"Enter the number"}
           value={number}
           onChange={handleNumberChange}
         />
-        </div>
         <div>
-          <button type={"submit"}>Add</button>
+          <button className="submit" type={"submit"}>Add</button>
         </div>
       </form>
     </>
