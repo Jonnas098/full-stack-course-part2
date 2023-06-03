@@ -105,18 +105,19 @@ const App = () => {
   }
 
   return (
-    <>
-      <h2>Phone Book</h2>
+    <div className="principal">
+      <div className="second">
+      <h4>phone book</h4>
       <Notification message={message}/>
-      <Filter search={search} handleChange={handleSearchChange}/>
-      <h2>Add a new</h2>
       <NewContact
         onSubmit={submitFunc}
         name={newName}
         handleNameChange={handleNameChange}
         number={newNumber}
         handleNumberChange={handleNumberChange}/>
-      <h2>Numbers</h2>
+      <h2>numbers</h2>
+      <hr/>
+      <Filter search={search} handleChange={handleSearchChange}/>
       {/*<div>debug: {newName} <br/> {newNumber}</div>*/}
       <ul>{contactsToShow.map(contact =>
         <Contacts
@@ -126,7 +127,8 @@ const App = () => {
           handleDelete={()=>deleteContact(contact.id)}
         />)}
       </ul>
-    </>
+      </div>
+    </div>
   );
 }
 
