@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Ada Lovelace",
       "number": "39-44-5323523"
+    },
+    {
+      "name": "Ivette Ramirez",
+      "number": "8643-6095",
+      "id": 3
     }
   ]
 }
