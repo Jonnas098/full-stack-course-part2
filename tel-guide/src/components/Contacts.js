@@ -5,7 +5,7 @@ const Contacts = ({ person, number, handleDelete }) => {
   return(
     <>
       <li>
-        {person} {number}
+        {person} <br/> {number}
         <button onClick={handleDelete}>Delete</button>
       </li>
     </>
