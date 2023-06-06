@@ -20,7 +20,7 @@ code {
 }
 
 .notification {
-  width: 100%;
+  display: flex;
   text-align: center;
   border: 1px solid teal;
   color: teal;
@@ -32,21 +32,30 @@ code {
 
 .principal {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   width: 500px;
   background-color: #f6fef9;
   box-shadow: currentcolor 0px 0px 0px 1px;
 }
 
+@media (max-width: 480px) {
+  .second{
+    min-width: 80%;
+  }
+}
+
+.second {
+  width: 65%;
+}
+
 input {
-  width: 96%;
+  width: 100%;
   border-width: 0px;
   box-shadow: currentcolor 0px 0px 0px 1px;
   border-style: solid;
   background: transparent;
   color: inherit;
-  padding: 8px;
+  padding: 8px 0;
   font-weight: 500;
   font-size: 15px;
   margin-top: 8px;
