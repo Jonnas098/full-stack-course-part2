@@ -1,7 +1,24 @@
 const express = require('express')
+const morgan = require('morgan')
+
 const app = express()
 
+const requestLogger = (request, response, next) => {
+  console.log('Method:', request.method)
+  console.log('Path:', request.path)
+  console.log('Body:', request.body)
+  console.log('---')
+  next()
+}
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({error: 'unknown endpoint'})
+}
+
+morgan.token('body', (request) => JSON.stringify(request.body))
+
 app.use(express.json())
+app.use(morgan(':method :url :status :response-time ms | :res[content-length] | :body'))
+//app.use(requestLogger)
 
 let persons = [
   {
@@ -46,13 +63,12 @@ app.get('/api/persons/:id', (request, response) => {
   if(person) {
     console.log('Person found')
     response.json(person)
+    response.status(200).end()
   } else {
     console.log('Person not found')
     response.send('<h1>404 Not Found</h1>')
     response.status(404).end()
   }
-
-  response.json(person)
 })
 
 app.delete('/api/persons/:id', (request, response) => {
@@ -89,6 +105,8 @@ app.post('/api/persons', (request, response) => {
   persons = persons.concat(person)
   response.json(person)
 })
+
+app.use(unknownEndpoint)
 
 const PORT = 3001
 
