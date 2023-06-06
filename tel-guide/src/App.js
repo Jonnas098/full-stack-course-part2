@@ -12,8 +12,16 @@ const App = () => {
   const [newNumber, setNewNumber] = useState("")
   const [search, setSearch] = useState("")
   const [message, setMessage] = useState(null)
+  const confirm =  window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
 
   const contactsToShow = persons.filter((element)=> element.name.toLowerCase().includes(search.toLowerCase()))
+
+  const alreadyAdded = () => {
+    setMessage(`${newName} is already added to phonebook`)
+    setTimeout(()=>{
+      setMessage(null)
+    }, 5000)
+  }
 
   console.log(contactsToShow)
   const handleNameChange = (event) => {
@@ -95,8 +103,8 @@ const App = () => {
     const nameExist = persons.some(data => data.name === newName)
     const sameNumber = persons.some(data => data.number !== newNumber)
 
-    nameExist && sameNumber && !emptyNumber && window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`) ? editNumber()
-    : nameExist ? alert(`${newName} is already added to phonebook`)
+    nameExist && sameNumber && !emptyNumber && confirm ? editNumber()
+    : nameExist ? alreadyAdded()
     : emptyName ? alert("The name cannot be empty")
     : addContact()
 
