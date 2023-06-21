@@ -12,23 +12,15 @@ const App = () => {
   const [newNumber, setNewNumber] = useState("")
   const [search, setSearch] = useState("")
   const [message, setMessage] = useState(null)
-  const confirm =  window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)
 
   const contactsToShow = persons.filter((element)=> element.name.toLowerCase().includes(search.toLowerCase()))
 
-  const alreadyAdded = () => {
-    setMessage(`${newName} is already added to phonebook`)
-    setTimeout(()=>{
-      setMessage(null)
-    }, 5000)
-  }
-
   console.log(contactsToShow)
+
   const handleNameChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
   }
-
   const handleNumberChange = (event) => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
@@ -40,12 +32,12 @@ const App = () => {
   }
 
   //Services
+
   useEffect(()=> {
     phonebookServices
       .getAll()
       .then(allContacts => setPersons(allContacts))
   }, [])
-
   console.log("Phonebook has", persons.length, "persons")
 
   const addContact = () => {
@@ -98,18 +90,33 @@ const App = () => {
 
   const submitFunc = (event) => {
     event.preventDefault()
-    const emptyName = newName === ""
-    const emptyNumber = newNumber === ""
-    const nameExist = persons.some(data => data.name === newName)
-    const sameNumber = persons.some(data => data.number !== newNumber)
-
-    nameExist && sameNumber && !emptyNumber && confirm ? editNumber()
-    : nameExist ? alreadyAdded()
-    : emptyName ? alert("The name cannot be empty")
-    : addContact()
+    console.log("Call function")
+    const methods = {
+      emptyName: newName === "",
+      emptyNumber: newNumber === "",
+      nameExist: persons.some(data => data.name === newName),
+      sameNumber: persons.some(data => data.number !== newNumber),
+      confirm: window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)      
+    }
+    if( methods.nameExist && methods.sameNumber && !methods.emptyNumber && methods.confirm){
+      editNumber()
+    } else if(methods.nameExist){
+      alreadyAdded()
+    } else if (methods.emptyName){
+      alert("The name cannot be empty")
+    } else {
+      addContact()
+    }
 
     setNewName("")
     setNewNumber("")
+  }
+
+  const alreadyAdded = () => {
+    setMessage(`${newName} is already added to phonebook`)
+    setTimeout(()=>{
+      setMessage(null)
+    }, 5000)
   }
 
   return (
