@@ -1,0 +1,91 @@
+Index: src/components/Display.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport Country from \"./Country\";\r\n\r\nconst Display = ({search, countriesToShow}) => {\r\n  return(\r\n    <div>\r\n      {search.length === 0\r\n        ? <p>Write a country name to see the details</p>\r\n        : countriesToShow.length > 10\r\n        ? <p>To many matches, specify another filter</p>\r\n        : countriesToShow.length === 1\r\n        ? countriesToShow.map((country, index) =>\r\n        <Country\r\n          key={index} name={country.name.common}\r\n          capital={country.capital}\r\n          populaton={country.population}\r\n          lang={country.languages}\r\n          flag={country.flag}\r\n        />)\r\n        : countriesToShow.map((country, index) => <h3 key={index}>{country.name.common}</h3>)}\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Display\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Display.js b/src/components/Display.js
+--- a/src/components/Display.js	
++++ b/src/components/Display.js	
+@@ -1,7 +1,25 @@
+-import React from "react";
++import React, {useState} from "react";
+ import Country from "./Country";
++import axios from "axios";
++
++const SingleCountry = ({country, onClick, show}) => {
++  return(
++    <div className={"div-country"}>
++      <h3>{country}</h3>
++      <button className={"div-button"} onClick={onClick}>Show info</button>
++      {show ? "" : "Adios"}
++    </div>
++  )
++}
+ 
+ const Display = ({search, countriesToShow}) => {
++  const [show, setShow] = useState(true)
++  const handleClick = () => {
++    setShow(!show)
++  }
++
++  const api_key = process.env.REACT_APP_API_KEY
++
+   return(
+     <div>
+       {search.length === 0
+@@ -11,13 +29,23 @@
+         : countriesToShow.length === 1
+         ? countriesToShow.map((country, index) =>
+         <Country
+-          key={index} name={country.name.common}
++          key={index}
++          name={country.name.common}
+           capital={country.capital}
+           populaton={country.population}
+           lang={country.languages}
+-          flag={country.flag}
++          flag={country.flags.png}
++          alt={country.flags.alt}
+         />)
+-        : countriesToShow.map((country, index) => <h3 key={index}>{country.name.common}</h3>)}
++        : countriesToShow.map((country, index) =>
++          <SingleCountry
++            key={index}
++            country={country.name.common}
++            show={show}
++            onClick={handleClick}
++          />
++        )
++      }
+     </div>
+   )
+ }
+Index: src/App.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.App {\r\n  text-align: center;\r\n}\r\n\r\n.App-logo {\r\n  height: 40vmin;\r\n  pointer-events: none;\r\n}\r\n\r\n.App-header {\r\n  background-color: #282c34;\r\n  min-height: 100vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  font-size: calc(10px + 2vmin);\r\n  color: white;\r\n}\r\n\r\n.App-link {\r\n  color: #61dafb;\r\n}\r\n\r\n@keyframes App-logo-spin {\r\n  from {\r\n    transform: rotate(0deg);\r\n  }\r\n  to {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/App.css b/src/App.css
+--- a/src/App.css	
++++ b/src/App.css	
+@@ -30,3 +30,16 @@
+     transform: rotate(360deg);
+   }
+ }
++
++.div-country {
++  display: flex;
++  align-items: center;
++}
++
++.div-button {
++  margin: 1%;
++}
++
++.view-true {
++  display: none;
++}

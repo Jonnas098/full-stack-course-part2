@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="96429696-5443-4947-a544-0fceac739367" name="Changes" comment="dynamic button text and refactor changes">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tel-guide/src/components/Contacts.js" beforeDir="false" afterPath="$PROJECT_DIR$/../tel-guide/src/components/Contacts.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QLt3ykoRhoDI9eX7QEvjHKWYgs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96429696-5443-4947-a544-0fceac739367" name="Changes" comment="" />
+      <created>1685144494754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685144494754</updated>
+      <workItem from="1685144500500" duration="8037000" />
+      <workItem from="1685219504318" duration="11405000" />
+      <workItem from="1685234570760" duration="5000" />
+      <workItem from="1685321954420" duration="529000" />
+      <workItem from="1685379058526" duration="257000" />
+      <workItem from="1685379331985" duration="824000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add flag image">
+      <created>1685151106813</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685151106813</updated>
+    </task>
+    <task id="LOCAL-00002" summary="variable name change">
+      <created>1685154140280</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685154140280</updated>
+    </task>
+    <task id="LOCAL-00003" summary="moved the .map to an external variable">
+      <created>1685154223639</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685154223639</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add the test and test-dos class">
+      <created>1685225970073</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685225970073</updated>
+    </task>
+    <task id="LOCAL-00005" summary="not-important">
+      <created>1685225985952</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685225985952</updated>
+    </task>
+    <task id="LOCAL-00006" summary="create the first version of the component">
+      <created>1685226025165</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685226025165</updated>
+    </task>
+    <task id="LOCAL-00007" summary="single country changes">
+      <created>1685226094559</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685226094559</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add &quot;alt&quot; prop in country and singleCountry component">
+      <created>1685231749066</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685231749066</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changed the content &quot;show&quot; to a component">
+      <created>1685231838089</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685231838089</updated>
+    </task>
+    <task id="LOCAL-00010" summary="delete test classes">
+      <created>1685234256775</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685234256775</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add &quot;alt&quot; props">
+      <created>1685234286007</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685234286007</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dynamic button text and refactor changes">
+      <created>1685234326574</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685234326574</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add flag image" />
+    <MESSAGE value="variable name change" />
+    <MESSAGE value="moved the .map to an external variable" />
+    <MESSAGE value="Add the test and test-dos class" />
+    <MESSAGE value="not-important" />
+    <MESSAGE value="create the first version of the component" />
+    <MESSAGE value="single country changes" />
+    <MESSAGE value="add &quot;alt&quot; prop in country and singleCountry component" />
+    <MESSAGE value="Changed the content &quot;show&quot; to a component" />
+    <MESSAGE value="delete test classes" />
+    <MESSAGE value="add &quot;alt&quot; props" />
+    <MESSAGE value="dynamic button text and refactor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="dynamic button text and refactor changes" />
+  </component>
+</project>
