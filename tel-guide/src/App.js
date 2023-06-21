@@ -58,7 +58,7 @@ const App = () => {
 
   const deleteContact = id => {
     const contact = persons.find(p => p.id === id)
-    //console.log(`Se eliminó el contacto ${contact.name}`)
+    //console.log(`Se eliminó el cotacto ${contact.name}`)
     phonebookServices
       .deleteContact(contact.id)
       .then(returnedContact => {
@@ -81,28 +81,31 @@ const App = () => {
       number: newNumber
     }
     console.log(contact.id)
-    phonebookServices
-      .editNumber(contact.id ,contactObj)
-      .then(returnedContact => {
-        setPersons(persons.map(person => person.id !== contact.id ? person : returnedContact))
-      })
+    if(window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
+      phonebookServices
+        .editNumber(contact.id ,contactObj)
+        .then(returnedContact => {
+          setPersons(persons.map(person => person.id !== contact.id ? person : returnedContact))
+        })
+    }
   }
 
   const submitFunc = (event) => {
     event.preventDefault()
     console.log("Call function")
+    
     const methods = {
       emptyName: newName === "",
       emptyNumber: newNumber === "",
-      nameExist: persons.some(data => data.name === newName),
-      sameNumber: persons.some(data => data.number !== newNumber),
-      confirm: window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)      
+      nameExist: persons.some(person => newName === person.name),
+      sameNumber: persons.some(person => newNumber === person.number),
     }
-    if( methods.nameExist && methods.sameNumber && !methods.emptyNumber && methods.confirm){
+
+    if(methods.nameExist && !methods.sameNumber && !methods.emptyNumber){
       editNumber()
-    } else if(methods.nameExist){
+    } else if(methods.nameExist) {
       alreadyAdded()
-    } else if (methods.emptyName){
+    }else if (methods.emptyName){
       alert("The name cannot be empty")
     } else {
       addContact()
@@ -142,6 +145,7 @@ const App = () => {
           handleDelete={()=>deleteContact(contact.id)}
         />)}
       </ul>
+      <p>Rev. 0.1.3 21 Jun 2023 16:35</p>
       </div>
     </div>
   );
